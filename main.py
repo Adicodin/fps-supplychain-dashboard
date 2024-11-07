@@ -1,15 +1,18 @@
 # app.py
+import dash
+import dash_bootstrap_components as dbc
 from dash import Dash, dcc, html
 from dash.dependencies import Input, Output
 import fps_tab  # Import FPS tab layout
 import supply_chain_tab  # Import Supply Chain tab layout
 
 # Initialize the Dash app
-app = Dash(__name__)
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+app.title = "Data Analysis Dashboard"
 
 # Define the app layout with two tabs
 app.layout = html.Div([
-    html.H1("Project Dashboard"),
+    html.H1("Data Analysis Dashboard", className="text-center my-4 mb-4"),
     dcc.Tabs(id="tabs",
              value="fps",
              children=[
